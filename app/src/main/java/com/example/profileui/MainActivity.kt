@@ -18,11 +18,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            ProfileUiTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
 
-                }
-            }
         }
     }
 }

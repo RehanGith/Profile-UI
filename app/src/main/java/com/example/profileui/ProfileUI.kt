@@ -85,6 +85,7 @@ fun StatBar(modifier: Modifier = Modifier) {
         RoundIcon(image = painterResource(id = R.drawable.profile), modifier = Modifier
             .size(100.dp)
             .weight(3f))
+        StatSection(modifier = Modifier.weight(7f))
 
     }
 }
@@ -115,10 +116,21 @@ fun StatSection(modifier: Modifier = Modifier) {
         horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        
+        ShowStates(numberText = "2", text = "Posts")
+        ShowStates(numberText = "2", text = "Follower")
+        ShowStates(numberText = "2", text = "Following")
     }
 }
 @Composable
 fun ShowStates(numberText : String, text : String, modifier: Modifier = Modifier) {
-
+    Column(modifier = modifier,
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center) {
+        Text(text = numberText,
+            fontWeight = FontWeight.Bold,
+            fontSize = 20.sp)
+        Spacer(modifier = Modifier.height(4.dp))
+        Text(text = text,
+            fontSize = 15.sp)
+    }
 }

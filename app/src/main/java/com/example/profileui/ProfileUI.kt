@@ -1,13 +1,17 @@
 package com.example.profileui
 
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Notifications
@@ -16,6 +20,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -31,6 +37,7 @@ fun MyUi(modifier: Modifier = Modifier) {
     Column(modifier = modifier.fillMaxSize()) {
         TopBar(name = "Rehan Pervaiz")
         Spacer(modifier = Modifier.height(5.dp))
+        StatBar()
 
     }
 }
@@ -68,5 +75,50 @@ fun TopBar(name : String, modifier: Modifier = Modifier ) {
 
 
     }
+
+}
+@Composable
+fun StatBar(modifier: Modifier = Modifier) {
+    Row(modifier = modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        RoundIcon(image = painterResource(id = R.drawable.profile), modifier = Modifier
+            .size(100.dp)
+            .weight(3f))
+
+    }
+}
+@Composable
+fun RoundIcon(
+    image : Painter,
+    modifier: Modifier = Modifier
+) {
+    Icon(
+        painter = image,
+        contentDescription = null,
+        modifier = modifier
+            .aspectRatio(1f, matchHeightConstraintsFirst = true)
+            .clip(CircleShape)
+            .border(
+                width = 3.dp,
+                color = Color.LightGray,
+                shape = CircleShape
+            )
+            .padding(3.dp)
+
+    )
+}
+@Composable
+fun StatSection(modifier: Modifier = Modifier) {
+    Row(
+        modifier = modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceEvenly,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        
+    }
+}
+@Composable
+fun ShowStates(numberText : String, text : String, modifier: Modifier = Modifier) {
 
 }
